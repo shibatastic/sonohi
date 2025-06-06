@@ -259,7 +259,13 @@ const fetchDailyEvents = async () => {
             generationConfig: eventsGenerationConfig
         };
 
-        const apiKey = "";
+        // --- ここを修正してください ---
+        // あなたのGoogle Gemini APIキーをここに貼り付けてください。
+        // 例: const apiKey = "YOUR_API_KEY_HERE";
+        // 公開リポジトリにアップロードする場合は、セキュリティリスクがあることに注意してください。
+        const apiKey = ""; // ここにあなたのAPIキーを貼り付ける
+        // --- 修正箇所ここまで ---
+
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const eventsResponse = await fetch(apiUrl, {
@@ -271,7 +277,12 @@ const fetchDailyEvents = async () => {
         if (!eventsResponse.ok) {
             const errorData = await eventsResponse.json();
             console.error('Events API Error:', errorData);
-            throw new Error(`出来事の検索に失敗しました: ${eventsResponse.status} ${eventsResponse.statusText}`);
+            // 403エラーの場合、より具体的なメッセージを表示
+            if (eventsResponse.status === 403) {
+                throw new Error('APIアクセスが拒否されました。APIキーが正しく設定されているか、権限が有効か確認してください。');
+            } else {
+                throw new Error(`出来事の検索に失敗しました: ${eventsResponse.status} ${eventsResponse.statusText}`);
+            }
         }
         const eventsResult = await eventsResponse.json();
         console.log('Raw Events API Response:', eventsResult);
