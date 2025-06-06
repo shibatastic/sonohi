@@ -1,0 +1,12 @@
+/* style.css */
+
+/* Tailwind CSSのクラスをメインで使用しているため、ここではボディのフォントファミリーのみを設定します */
+/* すべての要素に丸みを帯びた角を適用 */
+* {
+    border-radius: 0.5rem; /* Tailwindのrounded-lgに相当 */
+}
+
+/* Interフォントを適用 */
+body {
+    font-family: 'Inter', sans-serif;
+}
