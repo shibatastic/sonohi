@@ -263,7 +263,7 @@ const fetchDailyEvents = async () => {
         // あなたのGoogle Gemini APIキーをここに貼り付けてください。
         // 例: const apiKey = "YOUR_API_KEY_HERE";
         // 公開リポジトリにアップロードする場合は、セキュリティリスクがあることに注意してください。
-        const apiKey = ""; // ここにあなたのAPIキーを貼り付ける
+        const apiKey = "AIzaSyDVeoQ-OiTvHjteAZYvOMpDPvpRpJOwSC4"; // ここにあなたのAPIキーを貼り付ける
         // --- 修正箇所ここまで ---
 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
